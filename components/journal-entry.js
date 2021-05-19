@@ -75,9 +75,9 @@ class JournalEntry extends HTMLElement {
     // CODE GOES HERE
 
     // Set entry title, date, and content
-    this.shadowRoot.querySelector('.entry-title').innerText = entry.title;
-    this.shadowRoot.querySelector('.entry-date').innerText = entry.date;
-    this.shadowRoot.querySelector('.entry-content').innerText = entry.content;
+    this.shadowRoot.querySelector('.entry-title').innerHTML = entry.title;
+    this.shadowRoot.querySelector('.entry-date').innerHTML = entry.date;
+    this.shadowRoot.querySelector('.entry-content').innerHTML = entry.content;
 
     if (entry.image) {
       let entryImage;
@@ -92,11 +92,11 @@ class JournalEntry extends HTMLElement {
 
       // Create element specified by name 'img'
       entryImage = document.createElement('img');
-      entryImage.classList.add('entry-image');
+      entryImage.setAttribute('class', 'entry.image');
 
       // Set the entryImage src and alt attribute
-      entryImage.src = entry.image.src;
-      entryImage.alt = entry.image.alt;
+      entryImage.setAttribute('src',entry.image.src);
+      entryImage.setAttribute('alt',entry.image.alt);
 
       // Append image elem to the entry
       this.shadowRoot.querySelector('.entry').appendChild(entryImage);
@@ -125,10 +125,10 @@ class JournalEntry extends HTMLElement {
 
       // Create element specified by tag name 'audio'
       entryAudio = document.createElement('audio');
-      entryAudio.classList.add('entry-audio');
+      entryAudio.setAttribute('class', 'entry.audio');
 
-      // Set the audio source and allow audio controls
-      entryAudio.src = audio;
+      // Set the audio source and allow audio controls (set to true)
+      entryAudio.setAttribute('src',entry.audio);
       entryAudio.controls = true;
 
       // Append entryAudio to the last child
