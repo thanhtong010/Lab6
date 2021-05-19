@@ -128,7 +128,7 @@ class JournalEntry extends HTMLElement {
       entryAudio.classList.add('entry-audio');
 
       // Set the audio source and allow audio controls
-      entryImage.src = audio;
+      entryAudio.src = audio;
       entryAudio.controls = true;
 
       // Append entryAudio to the last child
